@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/card.css" />
+</head>
+
+<body>
+    <div class="top p0-5 flex flex-col flex-center align-middle">
+        <header class="no-select flex align-middle">
+            <div id="version" class="flex flex-col flex-center text-center">
+                <label for="versionSelect">Version</label>
+                <select name="versionSelect" id="versionSelect" class="no-select p0-5 align-middle text-center">
+						<option value="red" selected>red</option>
+						<option value="blue">blue</option>
+						<option value="yellow">yellow</option>
+						<option value="gold">gold</option>
+						<option value="silver">silver</option>
+						<option value="crystal">crystal</option>
+						<option value="ruby">ruby</option>
+						<option value="sapphire">sapphire</option>
+						<option value="emerald">emerald</option>
+						<option value="firered">firered</option>
+						<option value="leafgreen">leafgreen</option>
+						<option value="diamond">diamond</option>
+						<option value="pearl">pearl</option>
+						<option value="platinum">platinum</option>
+						<option value="heartgold">heartgold</option>
+						<option value="soulsilver">soulsilver</option>
+						<option value="black">black</option>
+						<option value="white">white</option>
+					</select>
+            </div>
+
+            <h1>Pokedex</h1>
+
+            <div class="flex flex-col flex-center align-middle p0-5">
+                <label for="listSize" class="no-select">List limit</label>
+                <div class="row">
+                    <select name="listSize" id="listSize" size="3" class="no-select">
+							<option value="25" selected>25</option>
+							<option value="50">50</option>
+							<option value="100">100</option>
+						</select>
+                </div>
+            </div>
+        </header>
+        <hr />
+        <div id="searchBar" class="flex align-middle">
+            <input type="text" placeholder="Cerca pokemon..." pokemonSearchBar class="text-center" />
+        </div>
+    </div>
+
+    <div id="loading" class="flex flex-center align-middle">
+        <img src="./static/pikachu_running.gif" height="100px" />
+    </div>
+
+    <div data-card="false" class="flex-col flex-center align-middle"></div>
+
+    <div id="body">
+        <div cardsContainer class="p0-5"></div>
+
+        <div footer class="no-select flex flex-center">
+            <div class="footer-button">
+                <svg xmlns="http://www.w3.org/2000/svg" back-button viewBox="0 0 16 16">
+						<path
+							d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"
+							/>
+						</svg>
+            </div>
+
+            <p page-progress>1/1</p>
+            <div class="footer-button">
+                <svg xmlns="http://www.w3.org/2000/svg" forward-button viewBox="0 0 16 16">
+							<path
+								d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"
+								/>
+							</svg>
+            </div>
+        </div>
+    </div>
+
+    <template template_card>
+					<div card="normal" class="flex flex-col flex-center align-middle">
+						<div card_header class="p0-5">
+							<img src="" alt="" pokemon_image />
+						</div>
+						<div card_footer class="flex align-middle text-center">
+							<p card_number></p>
+							<hr />
+							<p pokemon_name class="flex align-middle flex-center"></p>
+						</div>
+					</div>
+				</template>
+    <template template_zoomedCard> </template>
+
+    <script src="js/config.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/card.js" defer></script>
+</body>
+
+</html>

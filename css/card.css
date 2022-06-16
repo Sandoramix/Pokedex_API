@@ -1,0 +1,124 @@
+[cardsContainer] {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--card-width), 1fr));
+    justify-content: center;
+    justify-items: center;
+    grid-gap: 0.5rem;
+}
+
+[card],
+[card] * {
+    user-select: none;
+}
+
+[card] {
+    position: relative;
+    max-width: 250px;
+    border: solid 1px black;
+    border-radius: 15px;
+    width: 100%;
+    background-color: var(--card-bg);
+    overflow: hidden;
+}
+
+[pokemon_image] {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+}
+
+[card_header] {
+    position: relative;
+    height: var(--card-header-height);
+    width: var(--card-header-width);
+    border-bottom: 2px solid black;
+}
+
+[card_footer] {
+    width: var(--card-footer-width);
+    height: var(--card-footer-height);
+    border-radius: 0 0 15px 15px;
+    padding: 10px;
+}
+
+[card_footer] hr {
+    height: calc(100% + 20px);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+[card_number],
+[pokemon_name] {
+    font-size: large;
+    font-weight: 500;
+}
+
+[card="zoomed"] [card_number],
+[card="zoomed"] [pokemon_name] {
+    font-size: xx-large;
+    font-weight: 500;
+}
+
+[card_number] {
+    flex-grow: 1;
+    color: #820000;
+}
+
+[pokemon_name] {
+    flex-grow: 6;
+}
+
+[card] ::before,
+[card]:hover ::before {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+}
+
+[card] [card_header]::before {
+    content: "Normal";
+    font-size: large;
+    font-weight: 500;
+}
+
+[card]:hover {
+    cursor: pointer;
+}
+
+[card="normal"]:hover [card_header]::before {
+    content: "Shiny";
+}
+
+[data-card] {
+    top: 0;
+    z-index: 40;
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+[data-card="true"] {
+    display: flex;
+}
+
+[card="zoomed"] {
+    max-width: none;
+    position: relative;
+    min-width: 260px;
+    min-height: 350px;
+    width: 25vw;
+    aspect-ratio: 0.75;
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    border: 2px solid black;
+    box-shadow: 0 0 10vw 15px rgba(0, 0, 0, 0.9);
+}
+
+[card="zoomed"] [card_header]::before {
+    content: "Artwork";
+    font-size: xx-large;
+    font-weight: 600;
+}
